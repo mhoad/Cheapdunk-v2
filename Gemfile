@@ -12,11 +12,14 @@ gem 'jquery-rails'
 gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
 gem "factory_girl_rails", ">= 3.3.0", :group => [:development, :test]
 gem "email_spec", ">= 1.2.1", :group => :test
-gem "guard", ">= 0.6.2", :group => :development  
+gem "guard", ">= 0.6.2", :group => [:development, :test]  
+gem "spork", "~> 0.9.2", :group => [:development, :test]
+gem "guard-spork", "~> 0.8.0", :group => [:development, :test]
 case HOST_OS
   when /darwin/i
     gem 'rb-fsevent', :group => :development
     gem 'growl', :group => :development
+    gem 'ruby_gntp', :group => [:development, :test]
   when /linux/i
     gem 'libnotify', :group => :development
     gem 'rb-inotify', :group => :development
