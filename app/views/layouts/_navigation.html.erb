@@ -8,6 +8,9 @@
     <li>
     <%= link_to 'Login', new_user_session_path %>  
     </li>
+    <li>
+    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+    </li>
   <% end %>
   <% if user_signed_in? %>
     <li>

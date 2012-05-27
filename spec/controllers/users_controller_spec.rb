@@ -18,6 +18,10 @@ describe UsersController do
       get :show, :id => @user.id
       assigns(:user).should == @user
     end
+
+    it "should not be an oauth user" do
+      @user.oauth.should be_false
+    end
     
   end
 
