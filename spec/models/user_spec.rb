@@ -101,4 +101,24 @@ describe User do
 
   end
 
+  describe "user names" do
+
+    it "should not allow invalid names" do
+      names = ['a', '', 'Tim2', 'user.name', 'a'*51]
+      names.each do |name|
+        invalid_name_user = User.new(@attr.merge(:name => name))
+        invalid_name_user.should_not be_valid
+      end
+    end
+
+    it "should allow valid names" do
+      names = ['Tim', 'Sancho', 'James Bond']
+      names.each do |name|
+        valid_name_user = User.new(@attr.merge(:name => name))
+        valid_name_user.should be_valid
+      end
+    end
+
+  end
+
 end
