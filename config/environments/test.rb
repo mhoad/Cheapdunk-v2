@@ -38,6 +38,12 @@ Cheapdrunk::Application.configure do
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'example.com' }
 
+  # Speed up tests by lowering BCrypt's cost function.
+  require 'bcrypt'
+  silence_warnings do
+    BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
+  end
+
   FACEBOOK_APP_ID="367958853250792"
   FACEBOOK_APP_SECRET="2792ebcf1d1163788539266fbb729dc3"
 
