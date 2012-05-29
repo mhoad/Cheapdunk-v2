@@ -74,12 +74,33 @@ describe "Venue Pages" do
   describe "viewing a venue" do
     before { visit venue_path(venue) }
 
-    it { should have_content(venue.name) }
-    it { should have_content(venue.street_address) }
-    it { should have_content(venue.postcode) }
-    it { should have_content(venue.suburb) }
-    it { should have_content(venue.phone_number) }
-    it { should have_content(venue.url) }
+    describe "everyone can see the basic information" do
+      it { should have_content(venue.name) }
+      it { should have_content(venue.street_address) }
+      it { should have_content(venue.postcode) }
+      it { should have_content(venue.suburb) }
+      it { should have_content(venue.phone_number) }
+      it { should have_content(venue.url) }
+    end
+
+    describe "admins see the appropriate links" do
+      before do
+        sign_in user #Admin user
+        visit venue_path(venue) 
+      end
+      it { should have_link("Edit Venue") }
+      it { should have_link("Delete Venue") }
+    end
+
+    describe "regular users cannot see admin links" do
+      before do
+        user.revoke :admin 
+        sign_in user #Regular user
+        visit venue_path(venue) 
+      end
+      it { should_not have_link("Edit Venue") }
+      it { should_not have_link("Delete Venue") }
+    end
   end
 
   describe "User Authorisation" do
