@@ -1,0 +1,27 @@
+<div class="well">
+  <meta itemprop="interactionCount" content="UserComments:<%= @venue.reviews.count %>"/>
+  <% for review in @venue.reviews %>
+    <div itemprop="review" itemscope itemtype="http://schema.org/Review">
+      <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+        <span class="rating-foreground" itemprop="ratingValue">
+          <meta itemprop="worstRating" content="1"> 
+          <meta itemprop="ratingValue" content="<%= review.rating %>" /> 
+          <meta itemprop="bestRating" content="5">
+        </span> 
+      </div>
+      <div itemprop="reviewBody" class="reviewBody"><%= review.comment %></div>
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person" >
+        Reviewed by: 
+        <span itemprop="name" ><%= User.find(review.user_id).name %></span></span>
+        on 
+      <span><meta itemprop="datePublished" content="<%= review.created_at.to_date %>" class="datePublished">
+      <%= review.created_at.to_date.to_formatted_s(:long_ordinal)  %></span>
+    </div>
+    <% if can? :update, @venue %>
+      <span class="label label-important delete_review" >
+        <%= link_to "Delete Review", venue_review_path(@venue.id, review.id), 
+        url_options = { method: "delete", :confirm => "Are you sure?" }%>
+        </span>
+      <% end %>
+  <% end %>
+</div>

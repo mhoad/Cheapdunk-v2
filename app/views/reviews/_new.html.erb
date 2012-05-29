@@ -1,0 +1,15 @@
+<% if can? :manage, Review %>
+<%= form_for [@venue, Review.new] do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= radio_button_tag("review[rating]", "1", false, :class => "star") %>
+  <%= radio_button_tag("review[rating]", "2", false, :class => "star") %>
+  <%= radio_button_tag("review[rating]", "3", false, :class => "star") %>
+  <%= radio_button_tag("review[rating]", "4", false, :class => "star") %>
+  <%= radio_button_tag("review[rating]", "5", false, :class => "star") %>
+
+  <%= f.text_area :comment, :size => "5x5" %>
+  <%= f.submit "Submit Review", class: "btn btn-large btn-primary" %>
+<% end %>
+<% else %>
+<p>Please login to leave a comment </p>
+<% end %>
