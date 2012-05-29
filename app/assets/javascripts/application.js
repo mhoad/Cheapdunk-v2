@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require jquery.rating
 //= require jquery.fancybox
+//= require jquery.pjax
 //= require_tree .
