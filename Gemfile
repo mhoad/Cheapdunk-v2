@@ -40,3 +40,4 @@ gem "simple_form"
 gem "will_paginate", ">= 3.0.3"
 gem "omniauth-facebook"
 gem 'annotate', '~> 2.4.1.beta'
+gem "geocoder", "~> 1.1.1"

@@ -13,6 +13,8 @@
 #  created_at     :datetime        not null
 #  updated_at     :datetime        not null
 #  phone_number   :string(255)
+#  latitude       :float
+#  longitude      :float
 #
 
 class Venue < ActiveRecord::Base
@@ -35,4 +37,18 @@ class Venue < ActiveRecord::Base
   validates :postcode, presence: true, numericality: true, length:{ is: 4 } #Australian post codes are 4 digits
   validates :suburb, presence: true, format: { with: VALID_SUBURB_REGEX }, length:{ maximum: 20, minimum: 3 }
   validates :description, allow_blank: true, length:{ maximum: 500, minimum: 100 }
+
+  #Geocoding for venues
+
+  geocoded_by :full_address
+  after_validation :geocode, :if => :address_changed?
+
+  def full_address
+    address = "#{self.street_address}, #{self.suburb}, #{self.postcode}, Australia"
+  end
+
+  def address_changed?
+    street_address_changed? || suburb_changed? || postcode_changed?
+  end
+
 end

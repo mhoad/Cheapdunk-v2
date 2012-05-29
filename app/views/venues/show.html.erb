@@ -8,7 +8,8 @@
       <div class="well" >
         
       <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
-         </span>
+        <meta itemprop="latitude" content="<%= @venue.latitude %>" />
+        <meta itemprop="longitude" content="<%= @venue.longitude %>" /> </span>
        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
           <span itemprop="streetAddress" class="address"><b><%= @venue.street_address %></b></span><br>
           <span itemprop="addressLocality" class="address"><b><%= @venue.suburb %></b></span>,
@@ -17,7 +18,9 @@
        <p><span itemprop="telephone" class="address"><b><%= @venue.phone_number %></b></span></p>
        <p><a itemprop="url" href="<%= @venue.url %>" rel="nofollow" target="_blank"><%= @venue.url %></a></p>
        <p><small><b><%= @venue.description %></b></small></p>
+       
 
+      </div>
 
 
 
@@ -57,10 +60,10 @@
     <div class="span4">
     <ul class="thumbnails">
       <li class="span4">
-          <a class="various fancybox.iframe thumbnail" href="http://maps.google.com/?output=embed&amp;z=15&amp;t=m&amp;q=loc:">
+          <a class="various fancybox.iframe thumbnail" href="http://maps.google.com/?output=embed&amp;z=15&amp;t=m&amp;q=loc:<%= @venue.latitude %>+<%= @venue.longitude %>">
 
 
-          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=0,0&markers=0,0&zoom=15&size=360x268&maptype=roadmap&sensor=true", :alt => "Map to #{@venue.name}" %>
+          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{ @venue.latitude },#{ @venue.longitude }&markers=#{ @venue.latitude },#{ @venue.longitude }&zoom=15&size=360x268&maptype=roadmap&sensor=true", :alt => "Map to #{@venue.name}" %>
 
         </a>
       </li>   
@@ -74,7 +77,9 @@
   </li>
   </ul></div>
 
-  
+  <div class="span8">
+    
+  </div>  
  </div>
 </div><!-- end bar or pub microdata -->
 

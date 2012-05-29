@@ -13,6 +13,8 @@
 #  created_at     :datetime        not null
 #  updated_at     :datetime        not null
 #  phone_number   :string(255)
+#  latitude       :float
+#  longitude      :float
 #
 
 require 'spec_helper'
@@ -48,6 +50,8 @@ describe Venue do
   it { should respond_to(:url) }
   it { should respond_to(:suburb) }  
   it { should respond_to(:street_address) }
+  it { should respond_to(:latitude) }
+  it { should respond_to(:longitude) }
 
   describe "email" do
     it "should accept valid email addresses" do
