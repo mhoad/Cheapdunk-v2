@@ -1,0 +1,193 @@
+@import "bootstrap";
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  margin:auto;
+  width: 60%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $grayLight;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  height: auto;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+#error_explanation {
+  color:#f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+ }
+
+ /* Venue Pages */
+
+ .venue-title {
+ margin-bottom: 5px;
+ text-align: left;
+ font-size: 2.5em;
+
+ }
+
+.address {
+font-size: 1.05em;
+ }
+
+/* Venue Index */
+
+.listing {
+  display: block;
+  margin: auto;
+  width: 625px;
+  padding-bottom: 30px;
+}
+
+.listing-header {
+  width: 100%;
+  margin: auto;
+  position: relative;
+  display: block;
+  padding-bottom: 25px;
+}
+
+.listing-name {
+  width: 60%;
+  float: left;
+  position: relative;
+  display: inline;
+}
+
+.listing-rating {
+  
+  float: right;
+  position: relative; 
+  display: inline;
+}
+
+.listing-body {
+  width: 100%;
+  margin: auto;
+  position: relative;
+  display: block;
+  padding-bottom: 80px;
+}
+
+.listing-logo {
+  width: 90px;
+  float: left;
+  position: relative;
+  display: inline;
+  padding-right: 10px;
+}
+
+.listing-description {
+  vertical-align: top;
+  display: inline;
+  position: relative;
+  width: 350px;
+  float: left;
+}
+
+.listing-details {
+  display: inline;
+  position: relative;
+  vertical-align: top;
+  float: right;
+  text-align: left;
+  width: 160px;
+
+  
+}
