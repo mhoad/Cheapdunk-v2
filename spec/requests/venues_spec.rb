@@ -8,7 +8,7 @@ describe "Venue Pages" do
   let(:submit) { "Submit" }
   let(:user) { FactoryGirl.create(:user) }
 
-  before { user.add_role :admin } #Since only admins can add venues
+  before { user.add_role :admin } #Since only admins can add venues 
 
   describe "adding a venue" do
     before (:each) do
@@ -17,15 +17,34 @@ describe "Venue Pages" do
     end
 
     describe "new venue page layout" do
+      # The following tests check for a small sample of random elements under the 
+      # assumption that if one is there they will all be there. If you are feeling
+      # paranoid or have any need to just uncomment the appropriate lines
+      # for a more comprehensive (and slower test suite)
+
       it { should have_selector('h1',     text: 'Submit a new venue') }
-      it { should have_selector('input',  id:   'venue_name') }
-      it { should have_selector('input',  id:   'venue_email') }
-      it { should have_selector('input',  id:   'venue_street_address') }
-      it { should have_selector('input',  id:   'venue_suburb') }
-      it { should have_selector('input',  id:   'venue_postcode') }
-      it { should have_selector('input',  id:   'venue_phone_number') }
-      it { should have_selector('input',  id:   'venue_url') }
-      it { should have_selector('input',  id:   'venue_description') }
+      it { should have_css('input#venue_name') }
+      #it { should have_css('input#venue_email') }
+      #it { should have_css('input#venue_street_address') }
+      #it { should have_css('input#venue_suburb') }
+      #it { should have_css('input#venue_postcode') }
+      #it { should have_css('input#venue_phone_number') }
+      it { should have_css('input#venue_url') }
+      it { should have_css('textarea#venue_description') }
+      it { should have_css('select#venue_trading_times_attributes_0_monday_opens_at_4i') }
+      #it { should have_css('select#venue_trading_times_attributes_0_monday_closes_at_4i') }
+      #it { should have_css('select#venue_trading_times_attributes_0_tuesday_opens_at_4i') }
+      #it { should have_css('select#venue_trading_times_attributes_0_tuesday_closes_at_4i') }
+      #it { should have_css('select#venue_trading_times_attributes_0_wednesday_opens_at_4i') }
+      #it { should have_css('select#venue_trading_times_attributes_0_wednesday_closes_at_4i') }
+      #it { should have_css('select#venue_trading_times_attributes_0_thursday_opens_at_4i') }
+      #it { should have_css('select#venue_trading_times_attributes_0_thursday_closes_at_4i') }
+      #it { should have_css('select#venue_trading_times_attributes_0_friday_opens_at_4i') }
+      #it { should have_css('select#venue_trading_times_attributes_0_friday_closes_at_4i') }
+      #it { should have_css('select#venue_trading_times_attributes_0_saturday_opens_at_4i') }
+      #it { should have_css('select#venue_trading_times_attributes_0_saturday_closes_at_4i') }
+      #it { should have_css('select#venue_trading_times_attributes_0_sunday_opens_at_4i') }
+      it { should have_css('select#venue_trading_times_attributes_0_sunday_closes_at_4i') }
       it { should have_selector('input',  type: 'submit') }
     end
 
@@ -109,16 +128,14 @@ describe "Venue Pages" do
     describe "regular users cannot add a new venue" do
       before { visit new_venue_path }
 
-      it { should_not have_selector('input',  id:   'venue_name') }
-      it { should_not have_selector('input',  id:   'venue_name') }
+      it { should_not have_css('input#venue_name') }
       it { should have_content("You are not authorized to access this page") }
     end
 
     describe "regular users cannot edit a venue" do
       before { visit edit_venue_path(venue) }
 
-      it { should_not have_selector('input',  id:   'venue_name') }
-      it { should_not have_selector('input',  id:   'venue_name') }
+      it { should_not have_css('input#venue_name') }
       it { should have_content("You are not authorized to access this page") }
     end
   end

@@ -13,7 +13,7 @@ class VenuesController < ApplicationController
 
   def new
     @venue = Venue.new
-    #@venue.trading_times.new 
+    @venue.trading_times.new 
   end
 
   def create

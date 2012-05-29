@@ -19,7 +19,11 @@
 
 class Venue < ActiveRecord::Base
   attr_accessible :description, :email, :name, :postcode, :street_address, 
-                  :suburb, :url, :phone_number
+                  :suburb, :url, :phone_number, :trading_times_attributes
+
+  has_many :trading_times
+
+  accepts_nested_attributes_for :trading_times
 
   #Validations to ensure clean data
 

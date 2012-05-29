@@ -39,6 +39,7 @@ describe Venue do
     )
   end
 
+
   subject { @venue }
 
   it { should be_valid }
