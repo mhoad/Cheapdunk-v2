@@ -30,6 +30,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :oauth
   
+  has_many :reviews
+  has_many :venues, :through => :reviews
+  
   #Validations to ensure clean data
 
   before_save { |user| user.email = email.downcase }

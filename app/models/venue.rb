@@ -22,6 +22,8 @@ class Venue < ActiveRecord::Base
                   :suburb, :url, :phone_number, :trading_times_attributes
 
   has_many :trading_times
+  has_many :reviews
+  has_many :users, :through => :reviews
 
   accepts_nested_attributes_for :trading_times
 

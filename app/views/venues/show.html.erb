@@ -18,7 +18,11 @@
        <p><span itemprop="telephone" class="address"><b><%= @venue.phone_number %></b></span></p>
        <p><a itemprop="url" href="<%= @venue.url %>" rel="nofollow" target="_blank"><%= @venue.url %></a></p>
        <p><small><b><%= @venue.description %></b></small></p>
-       
+       <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+         <meta itemprop="ratingValue" content="<%= average_rating(@venue.id) %>" />
+         <%= display_stars(average_rating(@venue.id)) %> <br>
+         Based on <b><span itemprop="reviewCount"><%= pluralize(@venue.reviews.count, 'vote') %></span></b>
+       </div>  <!-- end aggregate rating microdata -->
 
       </div>
 
@@ -78,7 +82,8 @@
   </ul></div>
 
   <div class="span8">
-    
+    <%= render 'reviews/new' %>
+    <%= render 'reviews/view' %>
   </div>  
  </div>
 </div><!-- end bar or pub microdata -->
