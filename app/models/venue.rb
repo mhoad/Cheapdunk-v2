@@ -30,9 +30,9 @@ class Venue < ActiveRecord::Base
   VALID_SUBURB_REGEX  = /^\w[a-zA-Z ]+$/ #Letters only
 
 
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
-  validates :url, presence: true, format: { with: VALID_URL_REGEX }
+  validates :email, allow_blank: true, format: { with: VALID_EMAIL_REGEX }
+  validates :url, allow_blank: true, format: { with: VALID_URL_REGEX }
   validates :postcode, presence: true, numericality: true, length:{ is: 4 } #Australian post codes are 4 digits
   validates :suburb, presence: true, format: { with: VALID_SUBURB_REGEX }, length:{ maximum: 20, minimum: 3 }
-  validates :description, presence: false, length:{ maximum: 500, minimum: 100 }
+  validates :description, allow_blank: true, length:{ maximum: 500, minimum: 100 }
 end

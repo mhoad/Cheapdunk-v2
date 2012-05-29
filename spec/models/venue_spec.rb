@@ -138,4 +138,15 @@ describe Venue do
       it { should be_valid }
     end
   end
+
+  describe "should not require non essential fields" do
+    before { @venue.update_attributes(:email => "", :url => "", 
+                                      :phone_number => "", :description => "") }
+    it { should be_valid }
+  end
+
+  describe "should require essential fields" do
+    before { @venue.update_attributes(:name => "", :postcode => "", :suburb => "") }
+    it { should_not be_valid }
+  end
 end
