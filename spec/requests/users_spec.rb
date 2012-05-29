@@ -105,4 +105,14 @@ describe "User Pages" do
       it { should have_selector('input', type: 'submit') }
     end
   end
+
+  describe "show admin menu to admins" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      user.add_role :admin
+      sign_in user
+    end
+    it { should have_link('Admin') }
+    it { should_not have_link('Login') }
+  end
 end
