@@ -1,0 +1,82 @@
+<%= render 'fancybox' %>
+<div itemscope itemtype="http://schema.org/BarOrPub">
+  <div class="row">
+    <div class="span8">
+      <div class="page-header">
+       <h1 class="venue-title"><span itemprop="name"><%= @venue.name %></span></h1>
+      </div>
+      <div class="well" >
+        
+      <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+        <meta itemprop="latitude" content="<%= @venue.latitude %>" />
+        <meta itemprop="longitude" content="<%= @venue.longitude %>" /> </span>
+       <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <span itemprop="streetAddress" class="address"><b><%= @venue.street_address %></b></span><br>
+          <span itemprop="addressLocality" class="address"><b><%= @venue.suburb %></b></span>,
+          <span itemprop="postalCode" class="address"><b><%= @venue.postcode %></b></span>
+       </div> <!-- end postal address microdata-->
+       <p><span itemprop="telephone" class="address"><b><%= @venue.phone_number %></b></span></p>
+       <p><a itemprop="url" href="<%= @venue.url %>" rel="nofollow" target="_blank"><%= @venue.url %></a></p>
+       <p><small><b><%= @venue.description %></b></small></p>
+
+
+
+
+  <ul class="thumbnails">
+      <li class="span2">
+        <span class="thumbnail">
+          <img src="http://placehold.it/160x120" alt="">
+        </span>
+     </li>
+    <li class="span2">
+        <span class="thumbnail">
+          <img src="http://placehold.it/160x120" alt="">
+        </span>
+    </li>
+    <li class="span2">
+        <span class="thumbnail">
+          <img src="http://placehold.it/160x120" alt="">
+        </span>
+    </li>
+    <li class="span2">
+        <span class="thumbnail">
+          <img src="http://placehold.it/160x120" alt="">
+        </span>
+    </li>
+    </ul>
+
+    <!-- To be added later
+    <h3>Monday</h3>
+    <div itemprop="events" itemscope itemtype="http://schema.org/Event">
+      <meta itemprop="startDate" content="2016-04-21T20:00">
+      <meta itemprop="endDate" content="2016-04-21T20:00">
+      <div itemprop="name"><h5>Lunch Special</h5></div>
+      <p><span itemprop="description">$7 pizza and beer choose from Margarita, Vegetarian or Spanish and your choice of tap beer or wine.</span></p>
+    </div>  end event microdata -->
+
+    </div>
+    <div class="span4">
+    <ul class="thumbnails">
+      <li class="span4">
+          <a class="various fancybox.iframe thumbnail" href="http://maps.google.com/?output=embed&amp;z=15&amp;t=m&amp;q=loc:<%= @venue.latitude %>+<%= @venue.longitude %>">
+
+
+          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{ @venue.latitude },#{ @venue.longitude }&markers=#{ @venue.latitude },#{ @venue.longitude }&zoom=15&size=360x268&maptype=roadmap&sensor=true", :alt => "Map to #{@venue.name}" %>
+
+        </a>
+      </li>   
+    <%= render 'venue_management' %>
+
+  <li class="span3">
+    <b>Trading Hours:</b>
+  </li>
+  <li class="span3">
+    <%= render 'trading_times' %>
+  </li>
+  </ul></div>
+
+  
+ </div>
+</div><!-- end bar or pub microdata -->
+
+</div>

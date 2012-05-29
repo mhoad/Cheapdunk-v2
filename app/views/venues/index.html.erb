@@ -1,0 +1,33 @@
+<h1>Browse Happy Hour Venues</h1>
+
+
+<div data-pjax-container>
+
+<% @venues.each do |venue| %>
+  <div class="listing">
+    <div class="listing-header">
+      <span class="listing-name">
+       <h3> <%= link_to venue.name, venue %> </h3>
+      </span>
+      <span class="listing-rating">
+        
+      </span>
+    </div>
+    <div class="listing-body">
+      <span class="listing-logo"><img src="http://placehold.it/80x80"></span>
+      <span class="listing-description"><%= truncate(venue.description, :length => 215, :separator => ' ', :omission => '...') %></span>
+      <span class="listing-details">
+        <%= venue.street_address %> <br>
+        <%= venue.suburb %> <br>
+        <% if venue.reviews.count > 0 %>
+          <%= average_rating_percent(average_rating(venue.id)) %> based on <br>
+          <%= pluralize(@venue.reviews.count, 'review') %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+<% end %>
+<nav>
+ <%= page_navigation_links @venues %>
+</nav>
+</div>

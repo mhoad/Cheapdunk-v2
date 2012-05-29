@@ -1,0 +1,15 @@
+<% if can? :update, @venue %>
+<li><b>Admin Links:</b></li>
+  <li class="span4"><%= link_to "Delete Venue", venue_path(params[:id]), method: "delete" %></li>
+  <li class="span4"><%= link_to "Edit Venue", edit_venue_path %> </li>
+
+<% else %>
+
+<li><b>Advertisement:</b></li>
+    <li class="span4">
+      <a href="#" class="thumbnail">
+        <img src="http://placehold.it/360x268" alt="">
+      </a>
+    </li>
+
+<% end %>

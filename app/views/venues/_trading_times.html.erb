@@ -1,0 +1,23 @@
+<% for day in @venue.trading_times %>
+  <time itemprop="openingHours" datetime="Mo 
+  <%= "#{day.monday_opens_at.strftime('%H:%M')}-#{day.monday_closes_at.strftime('%H:%M')}" %>">
+  Monday: <%= "#{day.monday_opens_at.strftime('%l:%M %P')} - #{day.monday_closes_at.strftime('%l:%M %P')}" %> <br>
+  <time itemprop="openingHours" datetime="Tu 
+  <%= "#{day.tuesday_opens_at.strftime('%H:%M')}-#{day.tuesday_closes_at.strftime('%H:%M')}" %>">
+  Tuesday: <%= "#{day.tuesday_opens_at.strftime('%l:%M %P')} - #{day.tuesday_closes_at.strftime('%l:%M %P')}" %> <br>
+  <time itemprop="openingHours" datetime="We 
+  <%= "#{day.wednesday_opens_at.strftime('%H:%M')}-#{day.wednesday_closes_at.strftime('%H:%M')}" %>">
+  Wednesday: <%= "#{day.wednesday_opens_at.strftime('%l:%M %P')} - #{day.wednesday_closes_at.strftime('%l:%M %P')}" %> <br>
+  <time itemprop="openingHours" datetime="Th 
+  <%= "#{day.thursday_opens_at.strftime('%H:%M')}-#{day.thursday_closes_at.strftime('%H:%M')}" %>">
+  Thursday: <%= "#{day.thursday_opens_at.strftime('%l:%M %P')} - #{day.thursday_closes_at.strftime('%l:%M %P')}" %> <br>
+  <time itemprop="openingHours" datetime="Fr 
+  <%= "#{day.friday_opens_at.strftime('%H:%M')}-#{day.friday_closes_at.strftime('%H:%M')}" %>">
+  Friday: <%= "#{day.friday_opens_at.strftime('%l:%M %P')} - #{day.friday_closes_at.strftime('%l:%M %P')}" %> <br>
+  <time itemprop="openingHours" datetime="Sa 
+  <%= "#{day.saturday_opens_at.strftime('%H:%M')}-#{day.saturday_closes_at.strftime('%H:%M')}" %>">
+  Saturday: <%= "#{day.saturday_opens_at.strftime('%l:%M %P')} - #{day.saturday_closes_at.strftime('%l:%M %P')}" %> <br>
+  <time itemprop="openingHours" datetime="Su 
+  <%= "#{day.sunday_opens_at.strftime('%H:%M')}-#{day.sunday_closes_at.strftime('%H:%M')}" %>">
+  Sunday: <%= "#{day.sunday_opens_at.strftime('%l:%M %P')} - #{day.sunday_closes_at.strftime('%l:%M %P')}" %> <br>
+<% end %>
