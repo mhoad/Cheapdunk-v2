@@ -8,8 +8,7 @@
       <div class="well" >
         
       <span itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
-        <meta itemprop="latitude" content="<%= @venue.latitude %>" />
-        <meta itemprop="longitude" content="<%= @venue.longitude %>" /> </span>
+         </span>
        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
           <span itemprop="streetAddress" class="address"><b><%= @venue.street_address %></b></span><br>
           <span itemprop="addressLocality" class="address"><b><%= @venue.suburb %></b></span>,
@@ -58,10 +57,10 @@
     <div class="span4">
     <ul class="thumbnails">
       <li class="span4">
-          <a class="various fancybox.iframe thumbnail" href="http://maps.google.com/?output=embed&amp;z=15&amp;t=m&amp;q=loc:<%= @venue.latitude %>+<%= @venue.longitude %>">
+          <a class="various fancybox.iframe thumbnail" href="http://maps.google.com/?output=embed&amp;z=15&amp;t=m&amp;q=loc:">
 
 
-          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{ @venue.latitude },#{ @venue.longitude }&markers=#{ @venue.latitude },#{ @venue.longitude }&zoom=15&size=360x268&maptype=roadmap&sensor=true", :alt => "Map to #{@venue.name}" %>
+          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=0,0&markers=0,0&zoom=15&size=360x268&maptype=roadmap&sensor=true", :alt => "Map to #{@venue.name}" %>
 
         </a>
       </li>   
@@ -71,7 +70,7 @@
     <b>Trading Hours:</b>
   </li>
   <li class="span3">
-    <%= render 'trading_times' %>
+    
   </li>
   </ul></div>
 

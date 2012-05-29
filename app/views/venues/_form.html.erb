@@ -25,68 +25,11 @@
       <%= f.label :url %>
       <%= f.text_field :url, html_options = { :class => "span6" } %>
 
+      <%= f.label :email %>
+      <%= f.text_field :email, html_options = { :class => "span6" } %>
+
       <%= f.label :description %>
       <%= f.text_area :description, html_options = { :class => "span6", :size => "6x6" }  %>
-    </div>
-    <div class="tab-pane" id="tab2">
-      <p> <%= f.fields_for :trading_times do |builder| %>
-        <%= builder.label :monday_opens_at, "Monday Open Time" %>
-        <%= builder.time_select :monday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :monday_closes_at, "Monday Close Time" %>
-        <%= builder.time_select :monday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :tuesday_opens_at, "Tuesday Open Time" %>
-        <%= builder.time_select :tuesday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :tuesday_closes_at, "Tuesday Close Time" %>
-        <%= builder.time_select :tuesday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :wednesday_opens_at, "Wednesday Open Time" %>
-        <%= builder.time_select :wednesday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :wednesday_closes_at, "Wednesday Close Time" %>
-        <%= builder.time_select :wednesday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :thursday_opens_at, "Thursday Open Time" %>
-        <%= builder.time_select :thursday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :thursday_closes_at, "Thursday Close Time" %>
-        <%= builder.time_select :thursday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :friday_opens_at, "Friday Open Time" %>
-        <%= builder.time_select :friday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :friday_closes_at, "Friday Close Time" %>
-        <%= builder.time_select :friday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :saturday_opens_at, "Saturday Open Time" %>
-        <%= builder.time_select :saturday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :saturday_closes_at, "Saturday Close Time" %>
-        <%= builder.time_select :saturday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :sunday_opens_at, "Sunday Open Time" %>
-        <%= builder.time_select :sunday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :sunday_closes_at, "Sunday Close Time" %>
-        <%= builder.time_select :sunday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %></p>
-        <% end %>
     </div>
     <%= f.submit "Submit Venue", class: "btn btn-large btn-primary" %>
     <% end %>

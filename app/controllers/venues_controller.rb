@@ -1,5 +1,7 @@
 class VenuesController < ApplicationController
 
+  load_and_authorize_resource
+
   def index
     @venues = Venue.paginate(:page => params[:page]).per_page(2)
   end
@@ -18,7 +20,7 @@ class VenuesController < ApplicationController
     @venue = Venue.new(params[:venue])
     if @venue.save
       flash[:success] = "Venue sucessfully added"
-      redirect_to venue_path
+      redirect_to @venue
     else
       render 'new'
     end
