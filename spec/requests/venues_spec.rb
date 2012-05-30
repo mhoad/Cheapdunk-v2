@@ -58,15 +58,17 @@ describe "Venue Pages" do
 
       describe "with valid information" do
         before do
-        fill_in "Name",              with: "Example Venue"
-        fill_in "Email",             with: "user@example.com"
-        fill_in "Street address",    with: "123 Example St"
-        fill_in "Suburb",            with: "Sydney"
-        fill_in "Postcode",          with: "2000"
-        fill_in "Phone number",      with: "9528 2000"
-        fill_in "Url",               with: "http://www.example.com/"
-        fill_in "Description",       with: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+        fill_in "Name",             with: "Example Venue"
+        fill_in "Email",            with: "user@example.com"
+        fill_in "Street address",   with: "123 Example St"
+        fill_in "Suburb",           with: "Sydney"
+        fill_in "Postcode",         with: "2000"
+        fill_in "Phone number",     with: "9528 2000"
+        fill_in "Url",              with: "http://www.example.com/"
+        fill_in "Description",      with: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
                                             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        fill_in "Special Name",     with: "Example Special"  
+        check "Monday"                                   
         end
 
         it "should create a venue" do

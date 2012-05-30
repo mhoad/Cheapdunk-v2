@@ -19,13 +19,15 @@
 
 class Venue < ActiveRecord::Base
   attr_accessible :description, :email, :name, :postcode, :street_address, 
-                  :suburb, :url, :phone_number, :trading_times_attributes
+                  :suburb, :url, :phone_number, :trading_times_attributes, :specials_attributes
 
   has_many :trading_times
   has_many :reviews
   has_many :users, :through => :reviews
+  has_many :specials
 
-  accepts_nested_attributes_for :trading_times
+  accepts_nested_attributes_for :trading_times 
+  accepts_nested_attributes_for :specials, allow_destroy: true
 
   #Validations to ensure clean data
 

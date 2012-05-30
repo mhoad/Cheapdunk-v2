@@ -2,6 +2,7 @@
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tab1" data-toggle="tab">Main Details</a></li>
     <li><a href="#tab2" data-toggle="tab">Trading Hours</a></li>
+    <li><a href="#tab3" data-toggle="tab">Specials</a></li>
   </ul>
    <%= form_for(@venue) do |f| %>
   <div class="tab-content">
@@ -91,7 +92,44 @@
                                 html_options = { :class => "span2" } %></p>
         <% end %>
     </div>
+
+    <div class="tab-pane" id="tab3">
+      <%= f.fields_for :specials do |builder| %>
+      <%= builder.label :_destroy, "Remove Special" %>
+      <%= builder.check_box :_destroy %>
+      <%= builder.label :name, "Special Name" %>
+      <%= builder.text_field :name, html_options = { :class => "span6" } %>
+      <%= builder.label :description, "Description of Special" %>
+      <%= builder.text_area :description, html_options = { :class => "span6", :size => "6x6" } %>
+      <%= builder.label :special_starts_at, "Special Starting Time" %>
+      <%= builder.time_select :special_starts_at, 
+                              options = { :minute_step => 15, :ampm => true }, 
+                              html_options = { :class => "span2" } %>
+      <%= builder.label :special_finishes_at, "Special Finishing Time" %>
+      <%= builder.time_select :special_finishes_at, 
+                              options = { :minute_step => 15, :ampm => true }, 
+                              html_options = { :class => "span2" } %>
+      <fieldset>
+        <legend>What days is this special available:</legend>
+        <%= builder.label :available_monday, "Monday" %>
+        <%= builder.check_box :available_monday %>
+        <%= builder.label :available_tuesday, "Tuesday" %>
+        <%= builder.check_box :available_tuesday %>
+        <%= builder.label :available_wednesday, "Wednesday" %>
+        <%= builder.check_box :available_wednesday %>
+        <%= builder.label :available_thursday, "Thursday" %>
+        <%= builder.check_box :available_thursday %>
+        <%= builder.label :available_friday, "Friday" %>
+        <%= builder.check_box :available_friday %>
+        <%= builder.label :available_saturday, "Saturday" %>
+        <%= builder.check_box :available_saturday %>
+        <%= builder.label :available_sunday, "Sunday" %>
+        <%= builder.check_box :available_sunday %>
+      </fieldset>
+      <% end %>
+    </div>
     <%= f.submit "Submit Venue", class: "btn btn-large btn-primary" %>
+
     <% end %>
   </div>
 </div>

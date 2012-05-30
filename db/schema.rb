@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529160355) do
+ActiveRecord::Schema.define(:version => 20120530130512) do
 
   create_table "reviews", :force => true do |t|
     t.integer  "user_id"
@@ -32,6 +32,24 @@ ActiveRecord::Schema.define(:version => 20120529160355) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "specials", :force => true do |t|
+    t.integer  "venue_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "special_starts_at"
+    t.datetime "special_finishes_at"
+    t.boolean  "available_monday"
+    t.boolean  "available_tuesday"
+    t.boolean  "available_wednesday"
+    t.boolean  "available_thursday"
+    t.boolean  "available_friday"
+    t.boolean  "available_saturday"
+    t.boolean  "available_sunday"
+    t.datetime "end_date"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "trading_times", :force => true do |t|
     t.integer  "venue_id"

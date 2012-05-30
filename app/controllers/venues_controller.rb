@@ -19,6 +19,7 @@ class VenuesController < ApplicationController
   def new
     @venue = Venue.new
     @venue.trading_times.new 
+    @venue.specials.new
   end
 
   def create
