@@ -188,6 +188,17 @@ font-size: 1.05em;
   float: right;
   text-align: left;
   width: 160px;
+}
 
-  
+ul.like-buttons{
+list-style: none;
+margin: auto;
+padding: 0;
+width: 100%;
+}
+
+ul.like-buttons li{
+    display: block;
+    float: left;
+    margin-right: 10px;
 }

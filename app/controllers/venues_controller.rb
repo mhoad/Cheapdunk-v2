@@ -1,5 +1,6 @@
 class VenuesController < ApplicationController
 
+  #Only admins can add and edit venues etc..
   load_and_authorize_resource
 
   layout "venue", :except => [:show]
@@ -7,10 +8,7 @@ class VenuesController < ApplicationController
   add_breadcrumb "Homepage", :root_path
   add_breadcrumb "Venues", :venues_path, :title => "Sydney Bars & Pubs"
 
-
-
   def index
-
     @search = Venue.search do
       fulltext params[:search]
       paginate(:page => params[:page], :per_page => 10)
@@ -19,6 +17,7 @@ class VenuesController < ApplicationController
   end
 
   def show
+    #Make sure to 301 to the current URL from any old ones
     if request.path != venue_path(@venue)
       redirect_to @venue, status: :moved_permanently
     else

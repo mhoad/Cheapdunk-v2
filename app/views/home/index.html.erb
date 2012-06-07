@@ -1,4 +1,34 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
+<script type="text/javascript">// < ![CDATA[
+// < ![CDATA[
+// < ![CDATA[
+ _ga.trackFacebook();_ga.trackTwitter();
+// ]]></script>
+<div class="hero-unit">
+  <h1>Looking for cheap drinks in Sydney?</h1>
+  <p>Cheap Drunk is Sydney's biggest and best database of every single drink special, happy hour, 
+    and discounted drink that we could find. Why not take a look through our list of all 
+    <%= link_to "Sydney's bars, pubs and clubs", venues_path %> or better yet why not just search 
+    directly for your favourite venue below:</p>
+  <p>
+    <%= form_tag venues_path, :method => :get, :class => "form-search form-inline" do %>
+    <%= text_field_tag  :search, params[:search], :class => "search-query input-large search-query span9", 
+                        :placeholder => "Enter Venue Name, Post Code, City or Address" %>
+    <%= submit_tag "Search", :class => "btn btn-large btn-inverse" %>
+    <% end %>
+  </p>
+  <p>
+    Please show us some love below by sharing us with your friends, family, neighbours and AA sponsor.
+
+<div class="span8 offset3">
+<%= render 'shared/social_buttons' %>
+</div>
+  </p>
+</div>
+</div>
+</div>
+</div>
+<div class="alert alert-info">
+  Are you a venue owner? If so we'd love to hear from you. Click here to get in touch
+</div>
+<footer>
+</footer>
