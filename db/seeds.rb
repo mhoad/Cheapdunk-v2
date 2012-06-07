@@ -46,3 +46,9 @@ csv.each do |row|
     )
   puts venue.trading_times.inspect
 end
+
+csv_text = File.read("#{Rails.root}/db/venues-seed.csv")
+csv = CSV.parse(csv_text, :headers => true)
+csv.each do |row|
+
+end

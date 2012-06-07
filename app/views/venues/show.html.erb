@@ -79,6 +79,16 @@
   <li class="span3">
     <%= render 'trading_times' %>
   </li>
+  <li class="span3">
+    <b>Nearby Venues:</b>
+  </li>
+  <li class="span3">
+    <% @venue.nearbys(5).limit(4).each do |close_venue| %>
+    <%= link_to close_venue.name, close_venue %><br />
+    <%= format_distance_from(close_venue.distance_from(@venue)) %>
+    <br/>
+    <% end %> 
+  </li>
   </ul></div>
 
   <div class="span8">
