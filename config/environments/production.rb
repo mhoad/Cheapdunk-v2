@@ -79,7 +79,8 @@ Cheapdrunk::Application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
-
+  FACEBOOK_APP_ID="367958853250792"
+  FACEBOOK_APP_SECRET="2792ebcf1d1163788539266fbb729dc3"
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
