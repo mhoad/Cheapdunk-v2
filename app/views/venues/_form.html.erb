@@ -7,125 +7,22 @@
    <%= form_for(@venue) do |f| %>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
-       <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :name %>
-      <%= f.text_field :name, html_options = { :class => "span6" } %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email, html_options = { :class => "span6" } %>
-
-      <%= f.label :street_address %>
-      <%= f.text_field :street_address, html_options = { :class => "span6" } %>
-
-      <%= f.label :suburb %>
-      <%= f.text_field :suburb, html_options = { :class => "span6" } %>
-
-      <%= f.label :postcode %>
-      <%= f.text_field :postcode, html_options = { :class => "span6" } %>
-
-      <%= f.label :phone_number %>
-      <%= f.text_field :phone_number, html_options = { :class => "span6" } %>
-
-      <%= f.label :url %>
-      <%= f.text_field :url, html_options = { :class => "span6" } %>
-
-      <%= f.label :description %>
-      <%= f.text_area :description, html_options = { :class => "span6", :size => "6x6" }  %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= render 'venue_form', f: f %>
     </div>
     <div class="tab-pane" id="tab2">
-      <p> <%= f.fields_for :trading_times do |builder| %>
-        <%= builder.label :monday_opens_at, "Monday Open Time" %>
-        <%= builder.time_select :monday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :monday_closes_at, "Monday Close Time" %>
-        <%= builder.time_select :monday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :tuesday_opens_at, "Tuesday Open Time" %>
-        <%= builder.time_select :tuesday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :tuesday_closes_at, "Tuesday Close Time" %>
-        <%= builder.time_select :tuesday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :wednesday_opens_at, "Wednesday Open Time" %>
-        <%= builder.time_select :wednesday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :wednesday_closes_at, "Wednesday Close Time" %>
-        <%= builder.time_select :wednesday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :thursday_opens_at, "Thursday Open Time" %>
-        <%= builder.time_select :thursday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :thursday_closes_at, "Thursday Close Time" %>
-        <%= builder.time_select :thursday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :friday_opens_at, "Friday Open Time" %>
-        <%= builder.time_select :friday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :friday_closes_at, "Friday Close Time" %>
-        <%= builder.time_select :friday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :saturday_opens_at, "Saturday Open Time" %>
-        <%= builder.time_select :saturday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :saturday_closes_at, "Saturday Close Time" %>
-        <%= builder.time_select :saturday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :sunday_opens_at, "Sunday Open Time" %>
-        <%= builder.time_select :sunday_opens_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %>
-        <%= builder.label :sunday_closes_at, "Sunday Close Time" %>
-        <%= builder.time_select :sunday_closes_at, 
-                                options = { :minute_step => 15, :ampm => true }, 
-                                html_options = { :class => "span2" } %></p>
+      <p> 
+        <%= f.fields_for :trading_times do |builder| %>
+        <%= render :partial => "trading_times/trading_times_form", 
+            :locals => { :f => builder } %>
         <% end %>
+      </p>
     </div>
 
     <div class="tab-pane" id="tab3">
       <%= f.fields_for :specials do |builder| %>
-      <%= builder.label :_destroy, "Remove Special" %>
-      <%= builder.check_box :_destroy %>
-      <%= builder.label :name, "Special Name" %>
-      <%= builder.text_field :name, html_options = { :class => "span6" } %>
-      <%= builder.label :description, "Description of Special" %>
-      <%= builder.text_area :description, html_options = { :class => "span6", :size => "6x6" } %>
-      <%= builder.label :special_starts_at, "Special Starting Time" %>
-      <%= builder.time_select :special_starts_at, 
-                              options = { :minute_step => 15, :ampm => true }, 
-                              html_options = { :class => "span2" } %>
-      <%= builder.label :special_finishes_at, "Special Finishing Time" %>
-      <%= builder.time_select :special_finishes_at, 
-                              options = { :minute_step => 15, :ampm => true }, 
-                              html_options = { :class => "span2" } %>
-      <fieldset>
-        <legend>What days is this special available:</legend>
-        <%= builder.label :available_monday, "Monday" %>
-        <%= builder.check_box :available_monday %>
-        <%= builder.label :available_tuesday, "Tuesday" %>
-        <%= builder.check_box :available_tuesday %>
-        <%= builder.label :available_wednesday, "Wednesday" %>
-        <%= builder.check_box :available_wednesday %>
-        <%= builder.label :available_thursday, "Thursday" %>
-        <%= builder.check_box :available_thursday %>
-        <%= builder.label :available_friday, "Friday" %>
-        <%= builder.check_box :available_friday %>
-        <%= builder.label :available_saturday, "Saturday" %>
-        <%= builder.check_box :available_saturday %>
-        <%= builder.label :available_sunday, "Sunday" %>
-        <%= builder.check_box :available_sunday %>
-      </fieldset>
+        <%= render :partial => "specials/specials_form", 
+            :locals => { :f => builder } %>
       <% end %>
     </div>
     <%= f.submit "Submit Venue", class: "btn btn-large btn-primary" %>

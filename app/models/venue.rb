@@ -31,7 +31,7 @@ class Venue < ActiveRecord::Base
 
   #Validations to ensure clean data
 
-  before_save { |venue| venue.email   = email.downcase }
+  #before_save { |venue| venue.email   = email.downcase }
   before_save { |venue| venue.url     = url.downcase }
   before_save { |venue| venue.suburb  = suburb.camelcase }
 

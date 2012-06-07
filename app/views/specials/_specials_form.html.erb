@@ -1,0 +1,34 @@
+<span class="label label-important delete_review" >
+<%= link_to "Delete Special", '#', class:  "remove_specials" %>
+</span>
+<%= f.hidden_field :_destroy %>
+<fieldset>
+<%= f.label :name, "Special Name" %>
+<%= f.text_field :name, html_options = { :class => "span6" } %>
+<%= f.label :description, "Description of Special" %>
+<%= f.text_area :description, html_options = { :class => "span6", :size => "6x6" } %>
+<%= f.label :special_starts_at, "Special Starting Time" %>
+<%= f.time_select :special_starts_at, 
+                        options = { :minute_step => 15, :ampm => true }, 
+                        html_options = { :class => "span2" } %>
+<%= f.label :special_finishes_at, "Special Finishing Time" %>
+<%= f.time_select :special_finishes_at, 
+                        options = { :minute_step => 15, :ampm => true }, 
+                        html_options = { :class => "span2" } %>
+
+  <legend>What days is this special available:</legend>
+  <%= f.label :available_monday, "Monday" %>
+  <%= f.check_box :available_monday %>
+  <%= f.label :available_tuesday, "Tuesday" %>
+  <%= f.check_box :available_tuesday %>
+  <%= f.label :available_wednesday, "Wednesday" %>
+  <%= f.check_box :available_wednesday %>
+  <%= f.label :available_thursday, "Thursday" %>
+  <%= f.check_box :available_thursday %>
+  <%= f.label :available_friday, "Friday" %>
+  <%= f.check_box :available_friday %>
+  <%= f.label :available_saturday, "Saturday" %>
+  <%= f.check_box :available_saturday %>
+  <%= f.label :available_sunday, "Sunday" %>
+  <%= f.check_box :available_sunday %>
+</fieldset>
