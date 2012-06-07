@@ -12,8 +12,12 @@ class VenuesController < ApplicationController
   end
 
   def show
-    @venue = Venue.find(params[:id])
-    render :layout => "show_venue"
+    if request.path != venue_path(@venue)
+      redirect_to @venue, status: :moved_permanently
+    else
+      @venue = Venue.find(params[:id])
+      render :layout => "show_venue"
+    end
   end
 
   def new

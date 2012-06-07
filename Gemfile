@@ -35,3 +35,4 @@ gem 'annotate', '~> 2.4.1.beta'
 gem "geocoder", "~> 1.1.1"
 gem "rack-pjax"
 gem "breadcrumbs_on_rails"
+gem 'friendly_id'

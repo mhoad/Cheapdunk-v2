@@ -51,6 +51,10 @@ class Venue < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode, :if => :address_changed?
 
+  #SEO Friendly URLs
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
+
   def full_address
     address = "#{self.street_address}, #{self.suburb}, #{self.postcode}, Australia"
   end
