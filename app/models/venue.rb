@@ -55,6 +55,11 @@ class Venue < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
 
+  #Searchable
+  searchable do
+    text :name, :postcode, :suburb, :street_address
+  end
+
   def full_address
     address = "#{self.street_address}, #{self.suburb}, #{self.postcode}, Australia"
   end

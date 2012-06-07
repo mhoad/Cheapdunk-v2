@@ -7,8 +7,15 @@ class VenuesController < ApplicationController
   add_breadcrumb "Homepage", :root_path
   add_breadcrumb "Venues", :venues_path, :title => "Sydney Bars & Pubs"
 
+
+
   def index
-    @venues = Venue.paginate(:page => params[:page]).per_page(10)
+
+    @search = Venue.search do
+      fulltext params[:search]
+      paginate(:page => params[:page], :per_page => 10)
+    end
+    @venues = @search.results
   end
 
   def show

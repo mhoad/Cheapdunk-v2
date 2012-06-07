@@ -27,7 +27,7 @@ gem "capybara", "~> 1.1.2", :group => :test
 gem "devise", ">= 2.1.0"
 gem "cancan", ">= 1.6.7"
 gem "rolify", ">= 3.1.0"
-gem "bootstrap-sass", ">= 2.0.3"
+gem "bootstrap-sass", ">= 2.0.3.1"
 gem "simple_form"
 gem "will_paginate", ">= 3.0.3"
 gem "omniauth-facebook"
@@ -36,3 +36,5 @@ gem "geocoder", "~> 1.1.1"
 gem "rack-pjax"
 gem "breadcrumbs_on_rails"
 gem 'friendly_id'
+gem 'sunspot_rails'
+gem 'sunspot_solr', :group => :development
