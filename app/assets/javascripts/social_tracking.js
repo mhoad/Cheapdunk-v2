@@ -1,4 +1,4 @@
-<script type="text/javascript">
+// Google Analytics Tracking Code
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-32477640-1']);
@@ -10,7 +10,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script>
+
 
 // Copyright 2011 Google Inc. All Rights Reserved.
 
