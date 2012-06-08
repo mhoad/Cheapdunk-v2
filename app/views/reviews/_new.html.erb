@@ -1,4 +1,14 @@
 <% if can? :manage, Review %>
+<script>
+$(function(){
+      function analyticsGoal(event) {
+            _gaq.push(['_trackEvent', 'Forms', 'Submit', 'VenueReview']);
+            
+      }
+      $("input.btn-primary").click(analyticsGoal);
+
+});
+</script>
 <%= form_for [@venue, Review.new] do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <%= radio_button_tag("review[rating]", "1", false, :class => "star") %>
