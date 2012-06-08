@@ -1,6 +1,18 @@
 require 'spec_helper'
 
+
+
 describe "Reviews" do
+
+  before :all do
+  `sunspot-solr start`
+  begin
+    Sunspot.remove_all!
+  rescue Errno::ECONNREFUSED
+    sleep 1 && retry
+  end
+end
+
   subject { page }
   let(:venue) { FactoryGirl.create(:venue) }
   let(:user) { FactoryGirl.create(:user) }
