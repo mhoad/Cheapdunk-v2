@@ -36,5 +36,12 @@ gem "geocoder", "~> 1.1.1"
 gem "rack-pjax"
 gem "breadcrumbs_on_rails"
 gem 'friendly_id'
+
+#site search
 gem 'sunspot_rails'
 gem 'sunspot_solr', :group => :development
+
+#xml sitemaps
+gem 'sitemap_generator'
+gem 'carrierwave'
+gem 'fog' 
